@@ -9,6 +9,7 @@ mkDerivation {
   libraryHaskellDepends = [ aeson base bytestring jsaddle data-default ];
   libraryDarwinFrameworkDepends = with buildPackages; if hostPlatform.useiOSCross or false then [
     (assert osx_sdk != null; osx_sdk)
+    darwin.apple_sdk.frameworks.Foundation
   ] else [
     darwin.libobjc
     darwin.apple_sdk.libs.xpc
